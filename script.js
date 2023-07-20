@@ -53,3 +53,51 @@ const carousel = document.querySelector('.carousel');
   // Pause auto loop on hover
   carousel.addEventListener('mouseenter', stopAutoLoop);
   carousel.addEventListener('mouseleave', startAutoLoop);
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const desktopNav = document.getElementById("desktop-nav");
+    const hamburgerNav = document.getElementById("hamburger-nav");
+    const backToTopButton = document.getElementById("back-to-top");
+  
+    let prevScrollPos = window.pageYOffset;
+  
+    // Function to show or hide the nav bars based on scroll direction
+    function toggleNavVisibility() {
+      const currentScrollPos = window.pageYOffset;
+      if (prevScrollPos > currentScrollPos) {
+        desktopNav.classList.remove("nav-hidden");
+        desktopNav.classList.add("nav-visible");
+        hamburgerNav.classList.remove("nav-hidden");
+        hamburgerNav.classList.add("nav-visible");
+      } else {
+        desktopNav.classList.remove("nav-visible");
+        desktopNav.classList.add("nav-hidden");
+        hamburgerNav.classList.remove("nav-visible");
+        hamburgerNav.classList.add("nav-hidden");
+      }
+      prevScrollPos = currentScrollPos;
+  
+      // Show or hide the back to top button based on scroll position
+      if (currentScrollPos > 300) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    }
+  
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  
+    // Event listener to show or hide the nav bars on scroll
+    window.addEventListener("scroll", toggleNavVisibility);
+  
+    // Event listener for back to top button
+    backToTopButton.addEventListener("click", scrollToTop);
+  });
+  
