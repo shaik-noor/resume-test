@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Resume</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+    <nav id="desktop-nav">
+      <div class="logo">Resume</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Resume</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#certificates" onclick="toggleMenu()">Certificates</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Shaik Noor Mohammad</h1>
+        <p class="section__text__p2">Technical Support Engineer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/resume-example.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://linkedin.com/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/'"
+          />
+        </div>
+      </div>
+    </section>
+
+
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>4+ years </p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>B.Com Bachelors Degree</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>Highly motivated Technical Support Engineer experienced in Informatica PowerCenter, Administration, IICS, and data validation. Skilled in providing top-notch customer service and collaborating with clients and data analysts. Eager to contribute expertise to a professional organization and drive impactful results.</p>
+          </div>
+        </div>
+      </div>
+     
+    </section>
+
+    <section id="experience">
+      <p class="section__text__p1">Explore My Experience</p>
+      <h1 class="title">Experience</h1>
+      <div class="section-container">
+        <div class="details-container">
+          <img
+            src="./assets/INFA.png"
+            alt="Experience icon"
+            class="icon"
+          />
+          <h3>Technical Support Engineer</h3>
+          <p>Informatica Duration: 3+ years</p>
+          <p>I validated addresses, emails & phone numbers with the Data as a Service team. Collaborated with clients & data analysts, offered daily support, and scheduled sessions with product engineers to enhance services.</p>
+        </div>
+        <div class="details-container">
+          <img
+            src="./assets/f1.png"
+            alt="Experience icon"
+            class="icon"
+          />
+          <h3>Senior Engineer</h3>
+          <p>F1 INFO SOLUTIONS & SERVICES PRIVATE LIMITED</p>
+          <p>F1 Info Solutions is owned by Flipkart and I was a part of the refurbishing and servicing team, and my primary responsibility was to restore and service electronic devices such as laptops and smartphones, which are resold on Flipkart.</p>
+        </div>
+        <div class="details-container">
+          <img
+            src="./assets/business.png"
+            alt="Experience icon"
+            class="icon"
+          />
+          <h3>Small Business Owner</h3>
+          <p>NR Services Duration: 1 year</p>
+          <p>I started my own supply chain company, specializing in electronics such as laptops and smartphones, and I was buying and refurbishing gadgets on my own and selling them on the open market.</p>
+        </div>
+        <div class="details-container">
+          <img
+            src="./assets/texmo.png"
+            alt="Experience icon"
+            class="icon"
+          />
+          <h3>Accountant</h3>
+          <p>TEXMO INDUSTRIES</p>
+          <p>As a part-time employee at the Texmo Industries warehouse, I was in charge of monitoring, and accounting, which included keeping track of all transactions, preparing monthly and quarterly reports, and tracking the amount of goods in the warehouse.</p>
+        </div>
+      
+      </div>
+    </section>
+  
+    <section id="certificates">
+      <p class="section__text__p1">Check Out My Certificates</p>
+      <h1 class="title">Certificates</h1>
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="certificate-slide">
+            <img src="./assets/project-2.png" alt="Certificate 1" />
+            <h3>Certificate 1</h3>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+              Contact Info
+            </button>
+          </div>
+          <div class="certificate-slide">
+            <img src="./assets/project-2.png" alt="Certificate 2" />
+            <h3>Certificate 2</h3>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+              Contact Info
+            </button>
+          </div>
+          <div class="certificate-slide">
+            <img src="./assets/project-2.png" alt="Certificate 3" />
+            <h3>Certificate 3</h3>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+              Contact Info
+            </button>
+          </div>
+          <div class="certificate-slide">
+            <img src="./assets/project-2.png" alt="Certificate 3" />
+            <h3>Certificate 3</h3>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+              Contact Info
+            </button>
+          </div>
+          <div class="certificate-slide">
+            <img src="./assets/project-2.png" alt="Certificate 3" />
+            <h3>Certificate 3</h3>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+              Contact Info
+            </button>
+          </div>
+          <!-- Add more certificate slides here -->
+        </div>
+        <button class="prev-btn">&#10094;</button>
+        <button class="next-btn">&#10095;</button>
+      </div>
+    </section>
+    
+
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2023 John Doe. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
