@@ -93,7 +93,7 @@ carousel.addEventListener('touchend', (e) => {
 });
 
 function handleSwipe() {
-  const SWIPE_THRESHOLD = 100;
+  const SWIPE_THRESHOLD = 50;
   const deltaX = touchEndX - touchStartX;
 
   if (deltaX > SWIPE_THRESHOLD) {
