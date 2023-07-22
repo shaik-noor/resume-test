@@ -104,6 +104,7 @@ function handleSwipe() {
     showNextSlide();
   }
 }
+
 // Function to pause the auto loop
 function pauseAutoLoop() {
   stopAutoLoop();
@@ -115,14 +116,10 @@ function resumeAutoLoop() {
 }
 
 // Pause auto loop when touch starts
-certificateSlides.forEach(slide => {
-  slide.addEventListener('touchstart', pauseAutoLoop);
-});
+carousel.addEventListener('touchstart', pauseAutoLoop);
 
 // Resume auto loop when touch ends
-certificateSlides.forEach(slide => {
-  slide.addEventListener('touchend', resumeAutoLoop);
-});
+carousel.addEventListener('touchend', resumeAutoLoop);
 
 //testing new carousel end
 
