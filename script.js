@@ -5,54 +5,176 @@ function toggleMenu() {
   icon.classList.toggle("open");
 }
 
+//testing new carousel start
 
 const carousel = document.querySelector('.carousel');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  const certificateSlides = document.querySelectorAll('.certificate-slide');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const certificateSlides = document.querySelectorAll('.certificate-slide');
+const slideIndicatorsContainer = document.querySelector('.slide-indicators');
 
-  let currentIndex = 0;
-  const slideWidth = certificateSlides[0].offsetWidth;
+let currentIndex = 0;
+const slideWidth = certificateSlides[0].offsetWidth;
 
-  function showSlide(index) {
-    carousel.style.transform = `translateX(-${index * slideWidth}px)`;
+function showSlide(index) {
+  carousel.style.transform = `translateX(-${index * slideWidth}px)`;
+  updateSlideIndicators(index);
+}
+
+function showNextSlide() {
+  currentIndex++;
+  if (currentIndex >= certificateSlides.length) {
+    currentIndex = 0;
   }
+  showSlide(currentIndex);
+}
 
-  function showNextSlide() {
-    currentIndex++;
-    if (currentIndex >= certificateSlides.length) {
-      currentIndex = 0;
+function showPrevSlide() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = certificateSlides.length - 1;
+  }
+  showSlide(currentIndex);
+}
+
+function updateSlideIndicators(currentIndex) {
+  const slideIndicators = document.querySelectorAll('.slide-indicator');
+  slideIndicators.forEach((indicator, index) => {
+    if (index === currentIndex) {
+      indicator.classList.add('active');
+    } else {
+      indicator.classList.remove('active');
     }
-    showSlide(currentIndex);
+  });
+}
+
+nextBtn.addEventListener('click', showNextSlide);
+prevBtn.addEventListener('click', showPrevSlide);
+
+// Auto loop the carousel
+let intervalId;
+
+function startAutoLoop() {
+  intervalId = setInterval(showNextSlide, 3000);
+}
+
+function stopAutoLoop() {
+  clearInterval(intervalId);
+}
+
+startAutoLoop();
+
+// Pause auto loop on hover
+carousel.addEventListener('mouseenter', stopAutoLoop);
+carousel.addEventListener('mouseleave', startAutoLoop);
+
+// Create slide indicators and add event listeners
+certificateSlides.forEach((_, index) => {
+  const indicator = document.createElement('div');
+  indicator.classList.add('slide-indicator');
+  indicator.addEventListener('click', () => showSlide(index));
+  slideIndicatorsContainer.appendChild(indicator);
+});
+
+// Show the initial slide indicator
+updateSlideIndicators(currentIndex);
+
+// Touch swipe functionality for mobile devices
+let touchStartX = 0;
+let touchEndX = 0;
+
+carousel.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+
+carousel.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const SWIPE_THRESHOLD = 100;
+  const deltaX = touchEndX - touchStartX;
+
+  if (deltaX > SWIPE_THRESHOLD) {
+    // Swiped left to right (previous)
+    showPrevSlide();
+  } else if (deltaX < -SWIPE_THRESHOLD) {
+    // Swiped right to left (next)
+    showNextSlide();
   }
+}
+// Function to pause the auto loop
+function pauseAutoLoop() {
+  stopAutoLoop();
+}
 
-  function showPrevSlide() {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = certificateSlides.length - 1;
-    }
-    showSlide(currentIndex);
-  }
-
-  nextBtn.addEventListener('click', showNextSlide);
-  prevBtn.addEventListener('click', showPrevSlide);
-
-  // Auto loop the carousel
-  let intervalId;
-
-  function startAutoLoop() {
-    intervalId = setInterval(showNextSlide, 3000);
-  }
-
-  function stopAutoLoop() {
-    clearInterval(intervalId);
-  }
-
+// Function to resume the auto loop
+function resumeAutoLoop() {
   startAutoLoop();
+}
 
-  // Pause auto loop on hover
-  carousel.addEventListener('mouseenter', stopAutoLoop);
-  carousel.addEventListener('mouseleave', startAutoLoop);
+// Pause auto loop when touch starts
+certificateSlides.forEach(slide => {
+  slide.addEventListener('touchstart', pauseAutoLoop);
+});
+
+// Resume auto loop when touch ends
+certificateSlides.forEach(slide => {
+  slide.addEventListener('touchend', resumeAutoLoop);
+});
+
+//testing new carousel end
+
+
+
+// const carousel = document.querySelector('.carousel');
+//   const prevBtn = document.querySelector('.prev-btn');
+//   const nextBtn = document.querySelector('.next-btn');
+//   const certificateSlides = document.querySelectorAll('.certificate-slide');
+
+//   let currentIndex = 0;
+//   const slideWidth = certificateSlides[0].offsetWidth;
+
+//   function showSlide(index) {
+//     carousel.style.transform = `translateX(-${index * slideWidth}px)`;
+//   }
+
+//   function showNextSlide() {
+//     currentIndex++;
+//     if (currentIndex >= certificateSlides.length) {
+//       currentIndex = 0;
+//     }
+//     showSlide(currentIndex);
+//   }
+
+//   function showPrevSlide() {
+//     currentIndex--;
+//     if (currentIndex < 0) {
+//       currentIndex = certificateSlides.length - 1;
+//     }
+//     showSlide(currentIndex);
+//   }
+
+//   nextBtn.addEventListener('click', showNextSlide);
+//   prevBtn.addEventListener('click', showPrevSlide);
+
+//   // Auto loop the carousel
+//   let intervalId;
+
+//   function startAutoLoop() {
+//     intervalId = setInterval(showNextSlide, 3000);
+//   }
+
+//   function stopAutoLoop() {
+//     clearInterval(intervalId);
+//   }
+
+//   startAutoLoop();
+
+//   // Pause auto loop on hover
+//   carousel.addEventListener('mouseenter', stopAutoLoop);
+//   carousel.addEventListener('mouseleave', startAutoLoop);
 
 
   document.addEventListener("DOMContentLoaded", function () {
